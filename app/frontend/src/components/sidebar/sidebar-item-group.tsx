@@ -2,6 +2,7 @@ import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/
 import { useFlowContext } from '@/contexts/flow-context';
 import { ComponentGroup, ComponentItem } from '@/data/sidebar-components';
 import { SidebarItem } from './sidebar-item';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarItemGroupProps {
   group: ComponentGroup;
@@ -14,6 +15,7 @@ export function SidebarItemGroup({
 }: SidebarItemGroupProps) {
   const { name, icon: Icon, iconColor, items } = group;
   const { addComponentToFlow } = useFlowContext();
+  const { t } = useTranslation();
 
   const handleItemClick = (componentName: string) => {
     addComponentToFlow(componentName);
@@ -33,7 +35,7 @@ export function SidebarItemGroup({
             <SidebarItem 
               key={item.name}
               icon={item.icon} 
-              label={item.name} 
+              label={t(item.name)} 
               isActive={activeItem === item.name}
               onClick={() => handleItemClick(item.name)}
             />

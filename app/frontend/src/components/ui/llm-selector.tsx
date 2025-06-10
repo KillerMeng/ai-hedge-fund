@@ -1,5 +1,6 @@
 import { Check, ChevronsUpDown } from "lucide-react"
 import * as React from "react"
+import { useTranslation } from 'react-i18next'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -31,6 +32,7 @@ export function ModelSelector({
   onChange, 
   placeholder = "Select a model..." 
 }: ModelSelectorProps) {
+  const { t } = useTranslation();
   const [open, setOpen] = React.useState(false)
 
   return (
@@ -45,16 +47,16 @@ export function ModelSelector({
           <span className="text-subtitle">
             {value
               ? models.find((model) => model.model_name === value)?.display_name
-              : placeholder}
+              : t(placeholder)}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-full min-w-[300px] p-0">
         <Command>
-          <CommandInput placeholder="Search model..." className="h-9" />
+          <CommandInput placeholder={t('Search model...')} className="h-9" />
           <CommandList>
-            <CommandEmpty>No model found.</CommandEmpty>
+            <CommandEmpty>{t('No model found.')}</CommandEmpty>
             <CommandGroup>
               {models.map((model) => (
                 <CommandItem
@@ -73,7 +75,7 @@ export function ModelSelector({
                   }}
                 >
                   <div className="flex flex-col items-start">
-                    <span className="text-title">{model.display_name}</span>
+                    <span className="text-title">{t(model.display_name)}</span>
                     <span className="text-subtitle text-muted-foreground">{model.provider}</span>
                   </div>
                   <Check

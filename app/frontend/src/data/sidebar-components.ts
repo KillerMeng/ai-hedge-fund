@@ -40,7 +40,7 @@ export const componentGroups: ComponentGroup[] = [
     iconColor: "text-blue-400",
     items: [
       // { name: "Chat Input", icon: MessageSquare },
-      { name: "Text Input", icon: Type },
+      { name: "text_input.display_name", icon: Type },
       // { name: "File Input", icon: FileText }
     ]
   },
@@ -49,8 +49,8 @@ export const componentGroups: ComponentGroup[] = [
     icon: ArrowUpFromLine,
     iconColor: "text-green-400",
     items: [
-      { name: "JSON Output", icon: FileJson },
-      { name: "Text Output", icon: Type },
+      { name: "json_output.display_name", icon: FileJson },
+      { name: "text_output.display_name", icon: Type },
     ]
   },
   {
@@ -58,7 +58,7 @@ export const componentGroups: ComponentGroup[] = [
     icon: Users,
     iconColor: "text-yellow-400",
     items: [
-      { name: "Value Investors", icon: BadgeDollarSign },
+      { name: "value_investors.display_name", icon: BadgeDollarSign },
     ]
   }
 ]; 

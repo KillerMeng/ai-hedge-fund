@@ -8,6 +8,7 @@ import { PanelLeft } from 'lucide-react';
 import { ReactNode } from 'react';
 import { SearchBox } from './search-box';
 import { SidebarItemGroup } from './sidebar-item-group';
+import { useTranslation } from 'react-i18next';
 
 interface LeftSidebarProps {
   children?: ReactNode;
@@ -31,6 +32,7 @@ export function LeftSidebar({
     filteredGroups,
     handleAccordionChange 
   } = useComponentGroups(componentGroups);
+  const { t } = useTranslation();
 
   return (
     <div 
@@ -46,7 +48,7 @@ export function LeftSidebar({
       }}
     >
       <div className="p-2 flex justify-between flex-shrink-0 items-center border-b border-ramp-grey-700 mt-4">
-        <span className="text-white text-sm font-medium ml-4">Components</span>
+        <span className="text-white text-sm font-medium ml-4">{t('Components')}</span>
         <div className="flex items-center gap-1">
           <Button
             variant="ghost"
@@ -83,7 +85,7 @@ export function LeftSidebar({
 
         {filteredGroups.length === 0 && (
           <div className="text-center py-8 text-gray-400 text-sm">
-            No components match your search
+            {t('No components match your search')}
           </div>
         )}
       </div>

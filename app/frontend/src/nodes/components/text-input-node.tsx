@@ -2,6 +2,7 @@ import { ModelSelector } from '@/components/ui/llm-selector';
 import { getConnectedEdges, useReactFlow, type NodeProps } from '@xyflow/react';
 import { Bot, Loader2, Play } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
@@ -20,6 +21,7 @@ export function TextInputNode({
   id,
   isConnectable,
 }: NodeProps<TextInputNode>) {
+  const { t } = useTranslation();
   const [tickers, setTickers] = useState('');
   const [selectedModel, setSelectedModel] = useState<ModelItem | null>(defaultModel);
   
@@ -118,7 +120,7 @@ export function TextInputNode({
         selected={selected}
         isConnectable={isConnectable}
         icon={<Bot className="h-5 w-5" />}
-        name={data.name || "Custom Component"}
+        name={data.name || t('Custom Component')}
         description={data.description}
         hasLeftHandle={false}
       >
@@ -129,16 +131,16 @@ export function TextInputNode({
                 <div className="text-subtitle text-muted-foreground flex items-center gap-1">
                   <Tooltip delayDuration={200}>
                     <TooltipTrigger asChild>
-                      <span>Tickers</span>
+                      <span>{t('Tickers')}</span>
                     </TooltipTrigger>
                     <TooltipContent side="right">
-                      You can add multiple tickers using commas (AAPL,NVDA,TSLA)
+                      {t('You can add multiple tickers using commas (AAPL,NVDA,TSLA)')}
                     </TooltipContent>
                   </Tooltip>
                 </div>
                 <div className="flex gap-2">
                   <Input
-                    placeholder="Enter tickers"
+                    placeholder={t('Enter tickers')}
                     value={tickers}
                     onChange={handleTickersChange}
                   />
@@ -159,25 +161,25 @@ export function TextInputNode({
               </div>
               <div className="flex flex-col gap-2">
                 <div className="text-subtitle text-muted-foreground flex items-center gap-1">
-                  Model
+                  {t('Model')}
                 </div>
                 <ModelSelector
                   models={apiModels}
                   value={selectedModel?.model_name || ""}
                   onChange={setSelectedModel}
-                  placeholder="Select a model..."
+                  placeholder={t('Select a model...')}
                 />
               </div>
               <Accordion type="single" collapsible>
                 <AccordionItem value="advanced" className="border-none">
                   <AccordionTrigger className="!text-subtitle text-muted-foreground">
-                    Advanced
+                    {t('Advanced')}
                   </AccordionTrigger>
                   <AccordionContent className="pt-2">
                     <div className="flex flex-col gap-4">
                     <div className="flex flex-col gap-2">
                         <div className="text-subtitle text-muted-foreground flex items-center gap-1">
-                          End Date
+                          {t('End Date')}
                         </div>
                         <Input
                           type="date"
@@ -187,7 +189,7 @@ export function TextInputNode({
                       </div>
                       <div className="flex flex-col gap-2">
                         <div className="text-subtitle text-muted-foreground flex items-center gap-1">
-                          Start Date
+                          {t('Start Date')}
                         </div>
                         <Input
                           type="date"

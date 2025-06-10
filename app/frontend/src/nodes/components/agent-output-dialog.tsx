@@ -10,6 +10,7 @@ import { formatTimeFromTimestamp } from '@/utils/date-utils';
 import { createHighlightedJson, formatContent } from '@/utils/text-utils';
 import { AlignJustify, Copy, Loader2 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface AgentOutputDialogProps {
   isOpen: boolean;
@@ -26,6 +27,7 @@ export function AgentOutputDialog({
 }: AgentOutputDialogProps) {
   const { agentNodeData } = useNodeContext();
   const messages = agentNodeData[nodeId]?.messages || [];
+  const { t } = useTranslation();
   
   const [copySuccess, setCopySuccess] = useState(false);
   const [selectedTicker, setSelectedTicker] = useState<string | null>(null);
@@ -92,7 +94,7 @@ export function AgentOutputDialog({
       <DialogTrigger asChild>
         <div className="border-t border-border p-3 flex justify-end items-center cursor-pointer hover:bg-accent/50" onClick={() => onOpenChange(true)}>
           <div className="flex items-center gap-1">
-            <div className="text-subtitle text-muted-foreground">Output</div>
+            <div className="text-subtitle text-muted-foreground">{t('Output')}</div>
             <AlignJustify className="h-3.5 w-3.5 text-muted-foreground" />
           </div>
         </div>

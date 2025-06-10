@@ -1,6 +1,7 @@
 import { type NodeProps } from '@xyflow/react';
 import { Loader2, Type } from 'lucide-react';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/components/ui/button';
 import { CardContent } from '@/components/ui/card';
@@ -17,6 +18,7 @@ export function TextOutputNode({
 }: NodeProps<TextOutputNode>) {  
   const { outputNodeData, agentNodeData } = useNodeContext();
   const [showOutput, setShowOutput] = useState(false);
+  const { t } = useTranslation();
   
   // Check if any agent is in progress
   const isProcessing = Object.values(agentNodeData).some(
@@ -36,7 +38,7 @@ export function TextOutputNode({
         selected={selected}
         isConnectable={isConnectable}
         icon={<Type className="h-5 w-5" />}
-        name={data.name || "Text Output"}
+        name={data.name || t('Text Output')}
         description={data.description}
         hasRightHandle={false}
       >
@@ -44,7 +46,7 @@ export function TextOutputNode({
           <div className="border-t border-border p-3">
             <div className="flex flex-col gap-2">
               <div className="text-subtitle text-muted-foreground flex items-center gap-1">
-                Results
+                {t('Results')}
               </div>
               <div className="flex gap-2">
                 {isProcessing ? (
@@ -54,7 +56,7 @@ export function TextOutputNode({
                     disabled
                   >
                     <Loader2 className="h-2 w-2 animate-spin" />
-                    Processing...
+                    {t('Processing...')}
                   </Button>
                 ) : (
                   <Button 
@@ -63,7 +65,7 @@ export function TextOutputNode({
                     onClick={handleViewOutput}
                     disabled={!isOutputAvailable}
                   >
-                   View Output
+                   {t('View Output')}
                   </Button>
                 )}
               </div>

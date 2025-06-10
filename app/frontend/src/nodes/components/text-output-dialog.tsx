@@ -27,6 +27,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { ArrowDown, ArrowUp, Minus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface TextOutputDialogProps {
   isOpen: boolean;
@@ -41,6 +42,8 @@ export function TextOutputDialog({
   onOpenChange, 
   outputNodeData 
 }: TextOutputDialogProps) {
+  const { t } = useTranslation();
+
   if (!outputNodeData) return null;
 
   const getActionIcon = (action: ActionType) => {
@@ -91,29 +94,29 @@ export function TextOutputDialog({
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-xl font-bold">Investment Analysis Report</DialogTitle>
+          <DialogTitle className="text-xl font-bold">{t('Investment Analysis Report')}</DialogTitle>
         </DialogHeader>
         
         <div className="space-y-8 my-4">
           {/* Summary Section */}
           <section>
-            <h2 className="text-lg font-semibold mb-4">Summary</h2>
+            <h2 className="text-lg font-semibold mb-4">{t('Summary')}</h2>
             <Card>
               <CardHeader className="pb-2">
                 <CardDescription>
-                  Recommended trading actions based on analyst signals
+                  {t('Recommended trading actions based on analyst signals')}
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Table>
                   <TableHeader>
                     <TableRow>
-                      <TableHead>Ticker</TableHead>
-                      <TableHead>Price</TableHead>
-                      <TableHead>Action</TableHead>
-                      <TableHead>Quantity</TableHead>
-                      <TableHead>Confidence</TableHead>
-                      <TableHead>Reasoning</TableHead>
+                      <TableHead>{t('Ticker')}</TableHead>
+                      <TableHead>{t('Price')}</TableHead>
+                      <TableHead>{t('Action')}</TableHead>
+                      <TableHead>{t('Quantity')}</TableHead>
+                      <TableHead>{t('Confidence')}</TableHead>
+                      <TableHead>{t('Reasoning')}</TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>
@@ -127,7 +130,7 @@ export function TextOutputDialog({
                           <TableCell>
                             <div className="flex items-center gap-2">
                               {getActionIcon(decision.action as ActionType)}
-                              <span className="capitalize">{decision.action}</span>
+                              <span className="capitalize">{t(decision.action)}</span>
                             </div>
                           </TableCell>
                           <TableCell>{decision.quantity}</TableCell>
@@ -148,7 +151,7 @@ export function TextOutputDialog({
 
           {/* Analyst Signals Section */}
           <section>
-            <h2 className="text-lg font-semibold mb-4">Analyst Signals</h2>
+            <h2 className="text-lg font-semibold mb-4">{t('Analyst Signals')}</h2>
             <Accordion type="multiple" className="w-full">
               {tickers.map(ticker => (
                 <AccordionItem key={ticker} value={ticker}>
@@ -158,7 +161,7 @@ export function TextOutputDialog({
                       <div className="flex items-center gap-1">
                         {getActionIcon(outputNodeData.decisions[ticker].action as ActionType)}
                         <span className="text-sm font-normal text-muted-foreground">
-                          {outputNodeData.decisions[ticker].action} {outputNodeData.decisions[ticker].quantity} shares
+                          {t(outputNodeData.decisions[ticker].action)} {outputNodeData.decisions[ticker].quantity} shares
                         </span>
                       </div>
                     </div>

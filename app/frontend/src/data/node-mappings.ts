@@ -14,8 +14,8 @@ const nodeTypeDefinitions: Record<string, NodeTypeDefinition> = {
       type: "input-node",
       position,
       data: {
-        name: "Input",
-        description: "Start Node",
+        name: "text_input.display_name",
+        description: "text_input.description",
         status: "Idle",
       },
     }),
@@ -26,8 +26,8 @@ const nodeTypeDefinitions: Record<string, NodeTypeDefinition> = {
       type: "json-output-node",
       position,
       data: {
-        name: "JSON Output",
-        description: "JSON Output Node",
+        name: "json_output.display_name",
+        description: "json_output.description",
         status: "Idle",
       },
     }),
@@ -38,8 +38,8 @@ const nodeTypeDefinitions: Record<string, NodeTypeDefinition> = {
       type: "text-output-node",
       position,
       data: {
-        name: "Text Output",
-        description: "Output Node",
+        name: "text_output.display_name",
+        description: "text_output.description",
         status: "Idle",
       },
     }),

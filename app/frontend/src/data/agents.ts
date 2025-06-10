@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 export interface AgentItem {
   key: string;
   display_name: string;
@@ -8,92 +10,92 @@ export interface AgentItem {
 export const agents: AgentItem[] = [
   {
     "key": "aswath_damodaran",
-    "display_name": "Aswath Damodaran",
-    "description": "The Dean of Valuation",
+    "display_name": "aswath_damodaran.display_name",
+    "description": "aswath_damodaran.description",
     "order": 0
   },
   {
     "key": "ben_graham",
-    "display_name": "Ben Graham",
-    "description": "The Father of Value Investing",
+    "display_name": "ben_graham.display_name",
+    "description": "ben_graham.description",
     "order": 1
   },
   {
     "key": "bill_ackman",
-    "display_name": "Bill Ackman",
-    "description": "The Activist Investor",
+    "display_name": "bill_ackman.display_name",
+    "description": "bill_ackman.description",
     "order": 2
   },
   {
     "key": "cathie_wood",
-    "display_name": "Cathie Wood",
-    "description": "The Queen of Growth Investing",
+    "display_name": "cathie_wood.display_name",
+    "description": "cathie_wood.description",
     "order": 3
   },
   {
     "key": "charlie_munger",
-    "display_name": "Charlie Munger",
-    "description": "The Rational Thinker",
+    "display_name": "charlie_munger.display_name",
+    "description": "charlie_munger.description",
     "order": 4
   },
   {
     "key": "michael_burry",
-    "display_name": "Michael Burry",
-    "description": "The Big Short Contrarian",
+    "display_name": "michael_burry.display_name",
+    "description": "michael_burry.description",
     "order": 5
   },
   {
     "key": "peter_lynch",
-    "display_name": "Peter Lynch",
-    "description": "The 10-Bagger Investor",
+    "display_name": "peter_lynch.display_name",
+    "description": "peter_lynch.description",
     "order": 6
   },
   {
     "key": "phil_fisher",
-    "display_name": "Phil Fisher",
-    "description": "The Scuttlebutt Investor",
+    "display_name": "phil_fisher.display_name",
+    "description": "phil_fisher.description",
     "order": 7
   },
   {
     "key": "rakesh_jhunjhunwala",
-    "display_name": "Rakesh Jhunjhunwala",
-    "description": "The Big Bull Of India",
+    "display_name": "rakesh_jhunjhunwala.display_name",
+    "description": "rakesh_jhunjhunwala.description",
     "order": 8
   },
   {
     "key": "stanley_druckenmiller",
-    "display_name": "Stanley Druckenmiller",
-    "description": "The Macro Investor",
+    "display_name": "stanley_druckenmiller.display_name",
+    "description": "stanley_druckenmiller.description",
     "order": 9
   },
   {
     "key": "warren_buffett",
-    "display_name": "Warren Buffett",
-    "description": "The Oracle of Omaha",
+    "display_name": "warren_buffett.display_name",
+    "description": "warren_buffett.description",
     "order": 10
   },
   {
     "key": "technical_analyst",
-    "display_name": "Technical Analyst",
-    "description": "Chart Pattern Specialist",
+    "display_name": "technical_analyst.display_name",
+    "description": "technical_analyst.description",
     "order": 11
   },
   {
     "key": "fundamentals_analyst",
-    "display_name": "Fundamentals Analyst",
-    "description": "Financial Statement Specialist",
+    "display_name": "fundamentals_analyst.display_name",
+    "description": "fundamentals_analyst.description",
     "order": 12
   },
   {
     "key": "sentiment_analyst",
-    "display_name": "Sentiment Analyst",
-    "description": "Market Sentiment Specialist",
+    "display_name": "sentiment_analyst.display_name",
+    "description": "sentiment_analyst.description",
     "order": 13
   },
   {
     "key": "valuation_analyst",
-    "display_name": "Valuation Analyst",
-    "description": "Company Valuation Specialist",
+    "display_name": "valuation_analyst.display_name",
+    "description": "valuation_analyst.description",
     "order": 14
   },
   
